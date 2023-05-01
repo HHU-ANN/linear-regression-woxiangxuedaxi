@@ -1,7 +1,7 @@
 # 最终在main函数中传入一个维度为6的numpy数组，输出预测值
 
 import os
-from sklearn import preprocessing
+#from sklearn import preprocessing
 
 
 try:
@@ -23,9 +23,9 @@ def lasso(data):
     x,y = read_data()
     global wei
     wei = 1
-    min_max_scaler = preprocessing.MinMaxScaler()
-    x = min_max_scaler.fit_transform(x)
-    y = min_max_scaler.fit_transform(y)
+    #min_max_scaler = preprocessing.MinMaxScaler()
+    #x = min_max_scaler.fit_transform(x)
+   # y = min_max_scaler.fit_transform(y)
     wei = wei - a*np.matmul(np.linalg.inv(np.matmul(x.T,x)),np.matmul(x.T,y)-t/2)
     return wei @ data
 
