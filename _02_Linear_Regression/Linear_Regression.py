@@ -10,7 +10,7 @@ except ImportError as e:
 
 def ridge(data):
     x,y = read_data()
-    t = 0.01
+    t = 1
     weight = np.matmul(np.linalg.inv(np.matmul(x.T,x)+t*np.eye(6)),np.matmul(x.T,y))
     return weight @ data
 
@@ -19,9 +19,10 @@ def lasso(data):
     a = 0.01
     t = 0.1
     x,y = read_data()
-    #min_max_scaler = preprocessing.MinMaxScaler()
-    #x = min_max_scaler.fit_transform(x)
-    #y = min_max_scaler.fit_transform(y)
+    global wei
+    min_max_scaler = preprocessing.MinMaxScaler()
+    x = min_max_scaler.fit_transform(x)
+    y = min_max_scaler.fit_transform(y)
     wei = wei - a*np.matmul(np.linalg.inv(np.matmul(x.T,x)),np.matmul(x.T,y)-t/2)
     return wei @ data
 
