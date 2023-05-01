@@ -1,7 +1,7 @@
 # 最终在main函数中传入一个维度为6的numpy数组，输出预测值
 
 import os
-from sklearn import preprocessing
+
 try:
     import numpy as np
 except ImportError as e:
@@ -10,7 +10,7 @@ except ImportError as e:
 
 def ridge(data):
     x,y = read_data()
-    t = 10
+    t = 1
     weight = np.matmul(np.linalg.inv(np.matmul(x.T,x)+t*np.eye(6)),np.matmul(x.T,y))
     return weight @ data
 
@@ -20,9 +20,9 @@ def lasso(data):
     t = 0.1
     x,y = read_data()
     global wei
-    min_max_scaler = preprocessing.MinMaxScaler()
-    x = min_max_scaler.fit_transform(x)
-    y = min_max_scaler.fit_transform(y)
+    #min_max_scaler = preprocessing.MinMaxScaler()
+    #x = min_max_scaler.fit_transform(x)
+    #y = min_max_scaler.fit_transform(y)
     wei = wei - a*np.matmul(np.linalg.inv(np.matmul(x.T,x)),np.matmul(x.T,y)-t/2)
     return wei @ data
 
