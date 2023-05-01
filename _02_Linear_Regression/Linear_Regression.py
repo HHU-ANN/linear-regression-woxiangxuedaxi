@@ -22,7 +22,7 @@ def lasso(data):
     t = 0.05
     x,y = read_data()
     global wei
-    wei = 1
+    wei = 0.01
     #min_max_scaler = preprocessing.MinMaxScaler()
     #x = min_max_scaler.fit_transform(x)
    # y = min_max_scaler.fit_transform(y)
