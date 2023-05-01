@@ -1,7 +1,7 @@
 # 最终在main函数中传入一个维度为6的numpy数组，输出预测值
 
 import os
-
+from sklearn import preprocessing
 try:
     import numpy as np
 except ImportError as e:
@@ -10,7 +10,7 @@ except ImportError as e:
 
 def ridge(data):
     x,y = read_data()
-    t = 1
+    t = 10
     weight = np.matmul(np.linalg.inv(np.matmul(x.T,x)+t*np.eye(6)),np.matmul(x.T,y))
     return weight @ data
 
