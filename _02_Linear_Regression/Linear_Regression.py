@@ -19,9 +19,9 @@ def lasso(data):
     a = 0.01
     t = 0.1
     x,y = read_data()
-    min_max_scaler = preprocessing.MinMaxScaler()
-    x = min_max_scaler.fit_transform(x)
-    y = min_max_scaler.fit_transform(y)
+    #min_max_scaler = preprocessing.MinMaxScaler()
+    #x = min_max_scaler.fit_transform(x)
+    #y = min_max_scaler.fit_transform(y)
     weight = weight - a*np.matmul(np.linalg.inv(np.matmul(x.T,x)),np.matmul(x.T,y)-t/2)
     return weight @ data
 
