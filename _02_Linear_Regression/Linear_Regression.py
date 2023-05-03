@@ -20,17 +20,18 @@ def ridge(data):
 
 
 def lasso(data):
-    a = 0.07
+    a = 0.7
     t = 0.05
     x, y = read_data()
-    wei = np.array([1,1,1,1,1,1])
+    wei = np.array([1, 1, 1, 1, 1, 1])
     # min_max_scaler = preprocessing.MinMaxScaler()
     # x = min_max_scaler.fit_transform(x)
     # y = min_max_scaler.fit_transform(y)
-    wei = wei - a * np.matmul(np.linalg.inv(np.matmul(x.T, x)), np.matmul(x.T, y) - t / 2)
+    wei = a * np.matmul(np.linalg.inv(np.matmul(x.T, x)), np.matmul(x.T, y) - t*wei
     return wei @ data
 
-    
+
+
 
 def read_data(path='./data/exp02/'):
     x = np.load(path + 'X_train.npy')
