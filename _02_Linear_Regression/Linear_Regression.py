@@ -22,9 +22,8 @@ def ridge(data):
 def lasso(data):
     a = 1
     t = -0.1001
-    x, y = read_data()
-    x=np.sign(x)
-    y=np.sign(y)
+    x, y = np.sign(read_data())
+   
     wei = np.array([1, 1, 1, 1, 1, 1])
     # min_max_scaler = preprocessing.MinMaxScaler()
     # x = min_max_scaler.fit_transform(x)
