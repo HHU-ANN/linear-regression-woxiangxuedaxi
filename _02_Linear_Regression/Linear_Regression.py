@@ -23,7 +23,7 @@ def lasso(data):
     a = 1
     t = 0.05
     x, y = read_data()
-    wei = np.array([1, 1, 1, 1, 1, 1])
+    wei = np.array([0, 0, 0, 0, 0, 0])
     # min_max_scaler = preprocessing.MinMaxScaler()
     # x = min_max_scaler.fit_transform(x)
     # y = min_max_scaler.fit_transform(y)
@@ -33,7 +33,7 @@ def lasso(data):
 
 
 
-def read_data(path='./data/exp02/'):
+def read_data(path='../data/exp02/'):
     x = np.load(path + 'X_train.npy')
     y = np.load(path + 'y_train.npy')
     return x, y
