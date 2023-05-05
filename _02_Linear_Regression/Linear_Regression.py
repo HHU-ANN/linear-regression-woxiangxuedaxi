@@ -23,14 +23,12 @@ def lasso(data):
     a = 1
     t = 0.05
     x, y = read_data()
-    wei = np.array([0, 0, 0, 0, 0, 0])
+    wei = np.array([1, 1, 1, 1, 1, 1])
     # min_max_scaler = preprocessing.MinMaxScaler()
     # x = min_max_scaler.fit_transform(x)
     # y = min_max_scaler.fit_transform(y)
-    wei = a * np.matmul(np.linalg.inv(np.matmul(x.T, x)), np.matmul(x.T, y) - t*wei)
+    wei = a * np.matmul(np.linalg.inv(np.matmul(x.T, x)), np.matmul(x.T, y) - t * wei)
     return wei @ data
-
-
 
 
 def read_data(path='../data/exp02/'):
