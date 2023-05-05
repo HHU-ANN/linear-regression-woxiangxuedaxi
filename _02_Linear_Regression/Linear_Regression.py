@@ -28,7 +28,7 @@ def lasso(data):
     # min_max_scaler = preprocessing.MinMaxScaler()
     # x = min_max_scaler.fit_transform(x)
     # y = min_max_scaler.fit_transform(y)
-    wei =wei*u - a * np.matmul(np.linalg.inv(np.matmul(x.T, x)), np.matmul(x.T, y) )
+    wei =a * np.matmul(np.linalg.inv(np.matmul(x.T, x)), np.matmul(x.T, y) )
     return wei @ data
 
 
