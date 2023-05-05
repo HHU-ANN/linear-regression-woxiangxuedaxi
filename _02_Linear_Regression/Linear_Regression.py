@@ -20,7 +20,7 @@ def ridge(data):
 
 
 def lasso(data):
-    a = 1
+    a = -1
     t = -0.1001
     x, y = read_data()
     wei = np.array([0, 0, 0, 0, 0, 0])
