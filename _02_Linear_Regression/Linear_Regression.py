@@ -20,14 +20,15 @@ def ridge(data):
 
 
 def lasso(data):
-    a = 1
+    a = -1
+    k=1e-10
     t = -0.1001
     x, y = read_data()
     wei = np.array([0, 0, 0, 0, 0, 0])
     # min_max_scaler = preprocessing.MinMaxScaler()
     # x = min_max_scaler.fit_transform(x)
     # y = min_max_scaler.fit_transform(y)
-    wei =-a * np.matmul(np.linalg.inv((np.matmul(x.T, x)+ np.dot(t , np.eye(6)))), np.matmul(x.T, y)- t*wei)
+    wei =wei*k-a * np.matmul(np.linalg.inv((np.matmul(x.T, x)+ np.dot(t , np.eye(6)))), np.matmul(x.T, y)- t*wei)
     return wei @ data
 
 
